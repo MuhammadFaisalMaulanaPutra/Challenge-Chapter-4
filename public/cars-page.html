@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cars | Cars List</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="sidenav">
+      <a href="" class="sidenav-brand">
+        <img src="assets/img/brand.png" alt="" />
+      </a>
+      <a href="#about" class="sidenav-item">
+        <img src="assets/img/fi_home.png" alt="" /><br />
+        <span>Dashboard</span>
+      </a>
+      <a href="#services" class="sidenav-item active">
+        <img src="assets/img/fi_truck.png" alt="" /><br />
+        <span>Cars</span>
+      </a>
+    </div>
+
+    <div id="main">
+      <div class="sec-sidebar" id="secSidebar">
+        <div class="sec-sidebar-head">
+          <img src="assets/img/brand-2.png" alt="" />
+        </div>
+        <label class="sec-sidebar-title" href="#">CARS</label>
+        <a class="sec-sidebar-item active" href="#">List Cars</a>
+      </div>
+      <div id="content">
+        <div class="p-fixed">
+          <div class="topnav">
+            <button
+              href=""
+              id="openbtn"
+              class="topnav-item"
+              onclick="closeNav()"
+              style="border: none; background: none"
+            >
+              <img src="assets/img/fi_menu.png" alt="" />
+            </button>
+            <div class="topnav-item right">
+              <img src="assets/img/avatar.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function openNav() {
+        document.getElementById("secSidebar").style.width = "220px";
+        document.getElementById("content").style.marginLeft = "220px";
+        document.getElementById("openbtn").onclick = function () {
+          closeNav();
+        };
+      }
+
+      function closeNav() {
+        document.getElementById("secSidebar").style.width = "0";
+        document.getElementById("content").style.marginLeft = "0";
+        document.getElementById("openbtn").onclick = function () {
+          openNav();
+        };
+      }
+    </script>
+  </body>
+</html>
