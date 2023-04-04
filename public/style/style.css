@@ -18,7 +18,7 @@ body {
   height: 100%;
   width: 70px;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   background-color: #0d28a6;
@@ -74,16 +74,17 @@ body {
 
 .sec-sidebar {
   height: 100%;
-  width: 220px;
+  width: 290px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: #fff;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 0px;
-  margin-left: 70px;
+  padding-left: 70px;
+  /* margin-left: 70px; */
 }
 
 .sec-sidebar-head {
@@ -131,10 +132,6 @@ body {
   background: #cfd4ed;
 }
 
-p-fixed {
-  position: fixed !important;
-}
-
 .topnav {
   height: 70px;
   width: 100%;
@@ -143,7 +140,8 @@ p-fixed {
   background-color: #fff;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 0px;
+  /* padding-top: 0px; */
+  padding-left: 290px;
 }
 
 .topnav-item {
@@ -156,12 +154,14 @@ p-fixed {
   float: right;
 }
 
-#main {
-  margin-left: 70px;
-  width: calc(100% - 70px);
+.openbtn {
+  border: none;
+  background: none;
+  padding-left: 23px;
 }
 
 #content {
-  margin-left: 220px;
-  transition: margin-left 0.5s;
+  padding: 88px 18px 18px 18px;
+  margin-left: 290px;
+  transition: margin-left .5s;
 }
