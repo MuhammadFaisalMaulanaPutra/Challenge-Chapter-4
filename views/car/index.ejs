@@ -1,0 +1,123 @@
+<%- include('../partials/head') %>
+
+<div id="content">
+  <div class="row">
+    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>'">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">Cars</li>
+        <li class="breadcrumb-item active" aria-current="page">List Cars</li>
+      </ol>
+    </nav>
+    <div class="heading-page">
+      <h3 class="page-title">List Cars</h3>
+      <a href="/cars-create" class="btn btn-primary item-right"
+        >+ Add New Car</a
+      >
+    </div>
+    <div class="d-flex mt-4">
+      <a
+        href="/cars-list"
+        class="btn-outline-primary <% if(active == 'all'){ %> active <% } %>"
+        >All</a
+      >
+      <a
+        href="/cars-list?size=small"
+        class="btn-outline-primary <% if(active == 'small'){ %> active <% } %>"
+        >Small</a
+      >
+      <a
+        href="/cars-list?size=medium"
+        class="btn-outline-primary <% if(active == 'medium'){ %> active <% } %>"
+        >Medium</a
+      >
+      <a
+        href="/cars-list?size=large"
+        class="btn-outline-primary <% if(active == 'large'){ %> active <% } %>"
+        >Large</a
+      >
+    </div>
+
+    <div class="row mt-4">
+      <% car.map((car)=> { %>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <img src="assets/img/modal-img.png" alt="" />
+            <h3 class="car-title"><%= car.name %></h3>
+            <span class="badge bg-primary mb-2 text-capitalize"
+              ><%= car.size %></span
+            >
+            <h2 class="car-price">
+              Rp. <%= new Intl.NumberFormat('en-DE').format(car.costPerDay) %>
+            </h2>
+            <div class="car-info">
+              <img src="assets/img/fi_clock.png" alt="" />
+              <span class="car-update-info"
+                >Updated at <%= String(car.updatedAt).substr(0,25) %></span
+              >
+            </div>
+            <div class="row mt-3">
+              <div class="col-sm-6 d-grid" style="padding: 0 8px">
+                <button
+                  class="btn-outline-danger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal<%= car.id %>"
+                >
+                  <i class="bi bi-trash"></i> Delete
+                </button>
+              </div>
+              <div class="col-sm-6 d-grid" style="padding: 0 8px">
+                <a href="" class="btn-secondary"
+                  ><i class="bi bi-pencil-square"></i> Edit</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="deleteModal<%= car.id %>"
+          tabindex="-1"
+          aria-labelledby="deleteModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="text-center">
+                  <img src="assets/img/modal-img.png" alt="" />
+                  <h1 class="title-modal mt-3">Menghapus Data Mobil</h1>
+                  <h3 class="desc-modal mt-3 mb-4">
+                    Setelah dihapus, data mobil tidak dapat <br />
+                    dikembalikan. Yakin ingin menghapus?
+                  </h3>
+                  <div class="row justify-content-center">
+                    <div class="col-md-2" style="padding: 0 8px">
+                      <form action="/cars-delete/<%= car.id %>" method="post">
+                        <button class="btn-primary">Ya</button>
+                      </form>
+                    </div>
+                    <div class="col-md-2" style="padding: 0 8px">
+                      <button
+                        class="btn-outline-primary"
+                        data-bs-dismiss="modal"
+                      >
+                        Tidak
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
