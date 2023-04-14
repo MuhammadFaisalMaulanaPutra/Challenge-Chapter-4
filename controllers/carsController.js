@@ -37,8 +37,33 @@ exports.store = function (req, res) {
   res.redirect(201, "/cars-list");
 };
 
-exports.edit = function (req, res) {
-  res.render("car/edit");
+exports.edit = async function (req, res) {
+  const data = await cars.findByPk(req.params.id);
+  const carDetail = data.dataValues;
+
+  res.render("car/edit", {
+    carDetail,
+  });
+};
+
+exports.update = function (req, res) {
+  const { name, costPerDay, size } = req.body;
+  const id = req.params.id;
+
+  cars.update(
+    {
+      name,
+      costPerDay,
+      size,
+    },
+    {
+      where: {
+        id,
+      },
+    }
+  );
+
+  res.redirect(202, "/cars-list");
 };
 
 exports.delete = function (req, res) {

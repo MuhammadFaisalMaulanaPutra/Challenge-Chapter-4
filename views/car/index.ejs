@@ -49,7 +49,7 @@
               ><%= car.size %></span
             >
             <h2 class="car-price">
-              Rp. <%= new Intl.NumberFormat('en-DE').format(car.costPerDay) %>
+              Rp. <%= new Intl.NumberFormat('en-DE').format(car.costPerDay) %> / Hari
             </h2>
             <div class="car-info">
               <img src="assets/img/fi_clock.png" alt="" />
@@ -68,7 +68,7 @@
                 </button>
               </div>
               <div class="col-sm-6 d-grid" style="padding: 0 8px">
-                <a href="" class="btn-secondary"
+                <a href="/cars-edit-<%= car.id%>" class="btn-secondary"
                   ><i class="bi bi-pencil-square"></i> Edit</a
                 >
               </div>
@@ -95,7 +95,7 @@
                   </h3>
                   <div class="row justify-content-center">
                     <div class="col-md-2" style="padding: 0 8px">
-                      <form action="/cars-delete/<%= car.id %>" method="post">
+                      <form action="/cars-delete-<%= car.id %>" method="post">
                         <button class="btn-primary">Ya</button>
                       </form>
                     </div>

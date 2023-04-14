@@ -16,10 +16,11 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.get("/cars-list", carsController.list);
 app.get("/cars-create", carsController.create);
 app.post("/cars-store", carsController.store);
-// app.get("/cars-edit/:id", carsController.edit);
-// app.post("/cars-update/:id", carsController.update);
-app.post("/cars-delete/:id", carsController.delete);
+app.get("/cars-edit-:id", carsController.edit);
+app.post("/cars-update-:id", carsController.update);
+app.post("/cars-delete-:id", carsController.delete);
 
+// listen PORT
 app.listen(PORT, () => {
   console.log(
     `Server sudah berjalan, silahkan buka http://localhost:${PORT}/cars-list`
