@@ -10,7 +10,7 @@
       </ol>
     </nav>
     <h3 class="page-title">Add New Car</h3>
-    <form action="/cars-store" method="POST">
+    <form action="/cars-store" method="POST" enctype="multipart/form-data">
       <div class="wrapper">
         <div class="mb-3 row">
           <label for="" class="col-sm-1 col-form-label"
@@ -48,6 +48,7 @@
             <input
               type="file"
               placeholder="https://placeimg.com/640/480/any"
+              name="img"
             /><br />
             <span class="input-rule">File size max. 2MB</span>
           </div>

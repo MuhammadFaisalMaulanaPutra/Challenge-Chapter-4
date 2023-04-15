@@ -40,16 +40,19 @@
     <div class="row mt-4">
       <% car.map((car)=> { %>
 
-      <div class="col-md-4">
+      <div class="col-md-4 mb-4">
         <div class="card">
+          <div class="card-header">
+            <img class="card-img-top" src="<%= car.image%>" alt="" />
+          </div>
           <div class="card-body">
-            <img src="assets/img/modal-img.png" alt="" />
             <h3 class="car-title"><%= car.name %></h3>
             <span class="badge bg-primary mb-2 text-capitalize"
               ><%= car.size %></span
             >
             <h2 class="car-price">
-              Rp. <%= new Intl.NumberFormat('en-DE').format(car.costPerDay) %> / Hari
+              Rp. <%= new Intl.NumberFormat('en-DE').format(car.costPerDay) %> /
+              Hari
             </h2>
             <div class="car-info">
               <img src="assets/img/fi_clock.png" alt="" />

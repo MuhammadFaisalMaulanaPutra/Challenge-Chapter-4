@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const carsController = require("./controllers/carsController");
+const upload = require("./middleware/uploader");
 const app = express();
 const PORT = 3000;
 
@@ -15,9 +16,9 @@ app.use(express.static(path.join(__dirname, "/public")));
 // routes
 app.get("/cars-list", carsController.list);
 app.get("/cars-create", carsController.create);
-app.post("/cars-store", carsController.store);
+app.post("/cars-store", upload.single("img"), carsController.store);
 app.get("/cars-edit-:id", carsController.edit);
-app.post("/cars-update-:id", carsController.update);
+app.post("/cars-update-:id", upload.single("img"), carsController.update);
 app.post("/cars-delete-:id", carsController.delete);
 
 // listen PORT

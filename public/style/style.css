@@ -425,6 +425,22 @@ select option {
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
 }
 
+.card-header {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin-bottom: 16px;
+  border-radius: none;
+}
+
+.card-img-top {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
 .car-title {
   font-family: "IBM Plex Sans Condensed";
   font-style: normal;
